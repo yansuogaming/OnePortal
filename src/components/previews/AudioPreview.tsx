@@ -99,6 +99,7 @@ const AudioPreview: FC<{ file: OdFileObject }> = ({ file }) => {
               controls
               preload="auto"
               volume={playerVolume}
+              autoplay
             />
           </div>
         </div>
