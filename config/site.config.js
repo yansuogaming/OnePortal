@@ -45,7 +45,7 @@ module.exports = {
   // [OPTIONAL] The footer component of your website. You can write HTML here, but you need to escape double
   // quotes - changing " to \". You can write anything here, and if you like badges, generate some with https://shields.io
   footer: process.env.NEXT_PUBLIC_FOOTER ||
-    'Powered by <a href="https://github.com/EFLKumo/OnePortal" target="_blank" rel="noopener noreferrer">OnePortal</a>. Made with ❤ by spencerwooo, lyc8503, EFL and other contributors.',
+    'Powered by <a href="https://github.com/yansuogaming" target="_blank" rel="noopener noreferrer">Yansuo</a>. Made with ❤ by spencerwooo, lyc8503, EFL and other contributors.',
 
   // [OPTIONAL] This is where you specify the folders that are password protected. It is an array of paths pointing to all
   // the directories in which you have .password set. Check the documentation for details.
