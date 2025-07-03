@@ -76,7 +76,7 @@ const DownloadButtonGroup = () => {
     <>
       <CustomEmbedLinkMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} path={asPath} />
       <div className="flex flex-wrap justify-center gap-2">
-        <DownloadButton
+{/*         <DownloadButton
           onClickCallback={() =>
             window.open(`/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}`)
           }
@@ -84,8 +84,8 @@ const DownloadButtonGroup = () => {
           btnText={'Download'}
           btnIcon="file-download"
           btnTitle={'Download the file directly through OneDrive'}
-        />
-        <DownloadButton
+        /> */}
+{/*         <DownloadButton
           onClickCallback={() =>
             window.open(`/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}&proxy=true`)
           }
@@ -94,7 +94,7 @@ const DownloadButtonGroup = () => {
           btnIcon="download"
           btnTitle={'Download the file via Cloudflare network'}
           disabled={!siteConfig.allowProxy}
-        />
+        /> */}
         <DownloadButton
           onClickCallback={() => {
             clipboard.copy(`${getBaseUrl()}/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}`)
@@ -105,7 +105,7 @@ const DownloadButtonGroup = () => {
           btnIcon="copy"
           btnTitle={'Copy the permalink to the file to the clipboard'}
         />
-        <DownloadButton
+{/*         <DownloadButton
           onClickCallback={() => {
             clipboard.copy(
               `${getBaseUrl()}/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}&proxy=true`,
@@ -117,13 +117,13 @@ const DownloadButtonGroup = () => {
           btnIcon="copy"
           btnTitle={'Copy the permalink to the file to the clipboard'}
           disabled={!siteConfig.allowProxy}
-        />
-        <DownloadButton
+        /> */}
+{/*         <DownloadButton
           onClickCallback={() => setMenuOpen(true)}
           btnColor="teal"
           btnText={'Customise link'}
           btnIcon="pen"
-        />
+        /> */}
       </div>
     </>
   )
