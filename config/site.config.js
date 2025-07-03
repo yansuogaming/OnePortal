@@ -15,7 +15,7 @@ module.exports = {
   icon: '/icons/128.png',
 
   // The name of your website. Present alongside your icon.
-  title: process.env.NEXT_PUBLIC_TITLE || "OnePortal",
+  title: process.env.NEXT_PUBLIC_TITLE || "Data Nhạc",
 
   // The folder that you are to share publicly with OnePortal. Use '/' if you want to share your root folder.
   baseDirectory: process.env.BASE_DIRECTORY || '/Music',
