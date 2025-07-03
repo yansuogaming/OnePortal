@@ -8,7 +8,7 @@ module.exports = {
   // You can also put this in your worker's environment variable if you worry about
   // your email being exposed in public.
   // Format: i@example.com
-  userPrincipalName: process.env.USER_PRINCIPLE_NAME || '',
+  userPrincipalName: process.env.USER_PRINCIPLE_NAME || 'tienlong@37fmlq.onmicrosoft.com',
 
   // [OPTIONAL] This is the website icon to the left of the title inside the navigation bar. It should be placed under the
   // /public directory of your GitHub project (not your OneDrive folder!), and referenced here by its relative path to /public.
@@ -56,7 +56,7 @@ module.exports = {
 
   // [OPTIONAL] Leave it empty if you want to remove this email address from the nav bar.
   // Format: mailto:i@example.com
-  email: process.env.NEXT_PUBLIC_EMAIL || '',
+  email: process.env.NEXT_PUBLIC_EMAIL || 'mailto:yansuogaming@gmail.com',
   // [OPTIONAL] This is an array of names and links for setting your social information and links.
   // In the latest update, all brand icons inside font awesome is supported and the icon to render is based on the name
   // you provide. See the documentation for details.
