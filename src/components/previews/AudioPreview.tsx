@@ -36,6 +36,18 @@ const AudioPreview: FC<{ file: OdFileObject }> = ({ file }) => {
     // - properly when the user seeks through the timeline or the audio is buffered.
     const rap = rapRef.current?.audioEl.current
     if (rap) {
+      rap.oncanplay = () => {
+      setPlayerStatus(PlayerState.Ready)
+
+      // Thử tự động phát khi đủ điều kiện
+      const playPromise = rap.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.warn('Autoplay bị chặn bởi trình duyệt:', error)
+          // Tùy chọn: hiển thị nút "Click để phát"
+        })
+      }
+    }
       rap.oncanplay = () => setPlayerStatus(PlayerState.Ready)
       rap.onended = () => setPlayerStatus(PlayerState.Paused)
       rap.onpause = () => setPlayerStatus(PlayerState.Paused)
