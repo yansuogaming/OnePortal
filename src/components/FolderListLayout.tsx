@@ -1,9 +1,10 @@
 import type { OdFolderChildren } from '../types'
 
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useClipboard } from 'use-clipboard-copy'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
 
 import { getBaseUrl } from '../utils/getBaseUrl'
 import { formatModifiedDateTime, humanFileSize } from '../utils/fileDetails'
@@ -50,17 +51,75 @@ const FolderListLayout = ({
   // Get item path from item name
   const getItemPath = (name: string) => `${path === '/' ? '' : path}/${encodeURIComponent(name)}`
 
+  // State for sorting
+  const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' }>({
+    key: 'name',
+    direction: 'asc',
+  })
+
+  // Handle sort click
+  const handleSort = (key: string) => {
+    setSortConfig(prev => {
+      if (prev.key === key) {
+        return { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+      }
+      return { key, direction: 'asc' }
+    })
+  }
+
+  // Sort folderChildren
+  const sortedChildren = [...folderChildren].sort((a, b) => {
+    let aValue, bValue
+    switch (sortConfig.key) {
+      case 'name':
+        aValue = a.name.toLowerCase()
+        bValue = b.name.toLowerCase()
+        break
+      case 'lastModifiedDateTime':
+        aValue = a.lastModifiedDateTime
+        bValue = b.lastModifiedDateTime
+        break
+      case 'size':
+        aValue = a.size
+        bValue = b.size
+        break
+      default:
+        return 0
+    }
+    if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1
+    if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1
+    return 0
+  })
+
   return (
     <div className="rounded bg-white shadow-sm dark:bg-gray-900 dark:text-gray-100">
       <div className="grid grid-cols-12 items-center space-x-2 border-b border-gray-900/10 px-3 dark:border-gray-500/30">
-        <div className="col-span-12 py-2 text-xs font-bold uppercase tracking-widest text-gray-600 md:col-span-6 dark:text-gray-300">
+        <div
+          className="col-span-12 flex cursor-pointer items-center py-2 text-xs font-bold uppercase tracking-widest text-gray-600 md:col-span-6 dark:text-gray-300"
+          onClick={() => handleSort('name')}
+        >
           {'Name'}
+          {sortConfig.key === 'name' && (
+            <FontAwesomeIcon icon={sortConfig.direction === 'asc' ? faSortUp : faSortDown} className="ml-1" />
+          )}
         </div>
-        <div className="col-span-3 hidden text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300">
+        <div
+          className="col-span-3 flex hidden cursor-pointer items-center text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300"
+          onClick={() => handleSort('lastModifiedDateTime')}
+        >
           {'Last Modified'}
+          {sortConfig.key === 'lastModifiedDateTime' && (
+            <FontAwesomeIcon icon={sortConfig.direction === 'asc' ? faSortUp : faSortDown} className="ml-1" />
+          )}
         </div>
-        <div className="hidden text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300">
+        <div
+          className="flex hidden cursor-pointer items-center text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300"
+          onClick={() => handleSort('size')}
+        >
           {'Size'}
+          {sortConfig.key === 'size' && (
+            <FontAwesomeIcon icon={sortConfig.direction === 'asc' ? faSortUp : faSortDown} className="ml-1" />
+          )}
         </div>
         <div className="hidden text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300">
           {'Actions'}
@@ -100,7 +159,7 @@ const FolderListLayout = ({
         </div>
       </div>
 
-      {folderChildren.map((c: OdFolderChildren) => (
+      {sortedChildren.map((c: OdFolderChildren) => (
         <div
           className="grid grid-cols-12 transition-all duration-100 hover:bg-gray-100 dark:hover:bg-gray-850"
           key={c.id}
