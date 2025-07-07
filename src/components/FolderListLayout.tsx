@@ -104,7 +104,7 @@ const FolderListLayout = ({
           )}
         </div>
         <div
-          className="col-span-3 flex hidden cursor-pointer items-center text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300"
+          className="col-span-3 flex cursor-pointer items-center text-xs font-bold uppercase tracking-widest text-gray-600 md:block dark:text-gray-300"
           onClick={() => handleSort('lastModifiedDateTime')}
         >
           {'Last Modified'}
