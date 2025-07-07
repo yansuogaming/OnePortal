@@ -22,7 +22,7 @@ module.exports = {
 
   // [OPTIONAL] This represents the maximum number of items that one directory lists, pagination supported.
   // Do note that this is limited up to 200 items by the upstream OneDrive API.
-  maxItems: process.env.MAX_ITEMS || 100,
+  maxItems: process.env.MAX_ITEMS || 190,
 
   // [USE AT YOUR OWN RISK] Allow to use Cloudflare to proxy downloading
   // which might be against TOS of Cloudflare
