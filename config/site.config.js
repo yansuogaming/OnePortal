@@ -15,16 +15,16 @@ module.exports = {
   icon: '/icons/128.png',
 
   // The name of your website. Present alongside your icon.
-  // title: process.env.NEXT_PUBLIC_TITLE || "Data Nhạc",
-  title: process.env.NEXT_PUBLIC_TITLE || "Doraemon Movie 2025",
+  title: process.env.NEXT_PUBLIC_TITLE || "Data Nhạc",
+  // title: process.env.NEXT_PUBLIC_TITLE || "Doraemon Movie 2025",
 
   // The folder that you are to share publicly with OnePortal. Use '/' if you want to share your root folder.
-  // baseDirectory: process.env.BASE_DIRECTORY || '/Music',
-  baseDirectory: process.env.BASE_DIRECTORY || '/Phim/Phim Hoạt Hình/Doraemon/Doraemon Movie 2025',
+  baseDirectory: process.env.BASE_DIRECTORY || '/Music',
+  // baseDirectory: process.env.BASE_DIRECTORY || '/Phim/Phim Hoạt Hình/Doraemon/Doraemon Movie 2025',
 
   // [OPTIONAL] This represents the maximum number of items that one directory lists, pagination supported.
   // Do note that this is limited up to 200 items by the upstream OneDrive API.
-  maxItems: process.env.MAX_ITEMS || 190,
+  maxItems: process.env.MAX_ITEMS || 200,
 
   // [USE AT YOUR OWN RISK] Allow to use Cloudflare to proxy downloading
   // which might be against TOS of Cloudflare
