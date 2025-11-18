@@ -15,12 +15,12 @@ module.exports = {
   icon: '/icons/128.png',
 
   // The name of your website. Present alongside your icon.
-  title: process.env.NEXT_PUBLIC_TITLE || "Data Nhạc",
-  // title: process.env.NEXT_PUBLIC_TITLE || "Doraemon Movie 2025",
+  // title: process.env.NEXT_PUBLIC_TITLE || "Data Nhạc",
+  title: process.env.NEXT_PUBLIC_TITLE || "Mưa Đỏ - Red Rain",
 
   // The folder that you are to share publicly with OnePortal. Use '/' if you want to share your root folder.
-  baseDirectory: process.env.BASE_DIRECTORY || '/Music',
-  // baseDirectory: process.env.BASE_DIRECTORY || '/Phim/Phim Hoạt Hình/Doraemon/Doraemon Movie 2025',
+  // baseDirectory: process.env.BASE_DIRECTORY || '/Music',
+  baseDirectory: process.env.BASE_DIRECTORY || '/Phim/Phim Việt Nam/Mưa Đỏ - Red Rain (2025)',
 
   // [OPTIONAL] This represents the maximum number of items that one directory lists, pagination supported.
   // Do note that this is limited up to 200 items by the upstream OneDrive API.
