@@ -132,7 +132,7 @@ const VideoPreview: FC<{ file: OdFileObject }> = ({ file }) => {
             btnText={'Download'}
             btnIcon="file-download"
           />
-          <DownloadButton
+          {/* <DownloadButton
             onClickCallback={() =>
               window.open(`/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}&proxy=true`)
             }
@@ -141,7 +141,7 @@ const VideoPreview: FC<{ file: OdFileObject }> = ({ file }) => {
             btnIcon="download"
             btnTitle={'Download the file via Cloudflare network'}
             disabled={!siteConfig.allowProxy}
-          />
+          /> */}
           <DownloadButton
             onClickCallback={() => {
               clipboard.copy(
@@ -153,7 +153,7 @@ const VideoPreview: FC<{ file: OdFileObject }> = ({ file }) => {
             btnText={'Copy direct link'}
             btnIcon="copy"
           />
-          <DownloadButton
+          {/* <DownloadButton
             onClickCallback={() => {
               clipboard.copy(
                 `${getBaseUrl()}/api/raw?path=${asPath}${token ? `&odpt=${encodeURIComponent(token)}` : ''}&proxy=true`,
@@ -165,13 +165,13 @@ const VideoPreview: FC<{ file: OdFileObject }> = ({ file }) => {
             btnIcon="copy"
             btnTitle={'Copy the permalink to the file to the clipboard'}
             disabled={!siteConfig.allowProxy}
-          />
-          <DownloadButton
+          /> */}
+          {/* <DownloadButton
             onClickCallback={() => setMenuOpen(true)}
             btnColor="teal"
             btnText={'Customise link'}
             btnIcon="pen"
-          />
+          /> */}
 
           <DownloadButton
             onClickCallback={() => window.open(`iina://weblink?url=${getBaseUrl()}${videoUrl}`)}
