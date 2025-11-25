@@ -15,10 +15,10 @@ module.exports = {
   icon: '/icons/128.png',
 
   // The name of your website. Present alongside your icon.
-  title: process.env.NEXT_PUBLIC_TITLE || "/",
+  title: process.env.NEXT_PUBLIC_TITLE || "/Data",
 
   // The folder that you are to share publicly with OnePortal. Use '/' if you want to share your root folder.
-  baseDirectory: process.env.BASE_DIRECTORY || '/',
+  baseDirectory: process.env.BASE_DIRECTORY || '/Data',
 
   // [OPTIONAL] This represents the maximum number of items that one directory lists, pagination supported.
   // Do note that this is limited up to 200 items by the upstream OneDrive API.
