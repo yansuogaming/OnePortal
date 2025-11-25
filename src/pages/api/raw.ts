@@ -15,6 +15,7 @@ export default async function handler(req: NextRequest): Promise<Response> {
   }
 
   const { path = '/', odpt = '', proxy = false } = Object.fromEntries(req.nextUrl.searchParams)
+  
 
   // Sometimes the path parameter is defaulted to '[...path]' which we need to handle
   if (path === '[...path]') {
@@ -24,7 +25,8 @@ export default async function handler(req: NextRequest): Promise<Response> {
   const cleanPath = pathPosix.resolve('/', pathPosix.normalize(path)).replace('.password', '')
 
   // Handle protected routes authentication
-  const pass = (req.headers.get('opt-auth-pass') as string) ?? decodeURIComponent(odpt)
+  const pass = (req.headers.get('opt-auth-pass') as string) ?? ''
+  // const pass = (req.headers.get('opt-auth-pass') as string) ?? decodeURIComponent(odpt)
   const { code, message } = await checkAuthRoute(cleanPath, accessToken, pass)
   // Status code other than 200 means user has not authenticated yet
   if (code !== 200) {
